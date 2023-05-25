@@ -18,16 +18,32 @@ def game_loop():
             break
 
 def read_user_choice():
-    pass
+    """
+    Lee una selección del usuario (piedra, papel, tijera o salir) y la devuelve
+    """
+    return None
 
 def is_exit():
-    pass
+    """
+    Predicado que devuelve True si el usuario ha decidido para y False
+    si quiere seguir jugando
+    """
+    return True
 
 def generate_computer_choice():
-    pass
+    """
+    Genera y devuelve una jugada al azar
+    """
+    return None
 
-def evaluate_move():
-    pass
+def evaluate_move(user_choice, comp_choice):
+    """
+    Compara lass dos jugadas y devuelve un texto con el resultado
+    """
+    return None
 
 def print_result():
-    pass
+    """
+    Imprime bonito el resultado
+    """
+    return None
