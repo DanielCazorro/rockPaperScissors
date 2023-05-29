@@ -32,11 +32,11 @@ def read_user_choice():
     user_choice = UserChoice.INVALID
     while user_choice == UserChoice.INVALID:
         print("Select one number: ")
-        print(f"{UserChoice.PAPER}. Paper")
-        print(f"{UserChoice.ROCK}. Rock")
-        print(f"{UserChoice.SCISSORS}. Scissors")
+        print(f"{UserChoice.PAPER.value}. Paper")
+        print(f"{UserChoice.ROCK.value}. Rock")
+        print(f"{UserChoice.SCISSORS.value}. Scissors")
         print("--------------------")
-        print(f"{UserChoice.QUIT}. Quit the game")
+        print(f"{UserChoice.QUIT.value}. Quit the game")
 
         # Compruebo que los datos son correctos
         try:
