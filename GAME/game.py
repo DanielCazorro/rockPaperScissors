@@ -1,9 +1,12 @@
-# User Choices
-INVALID_CHOICE = -1
-PAPER = 0
-ROCK = 1
-SCISSORS = 2
-QUIT = 3
+from enum import Enum
+
+class UserChoice(Enum):
+    # User Choices
+    INVALID = -1
+    PAPER = 0
+    ROCK = 1
+    SCISSORS = 2
+    QUIT = 3
 
 def game_loop():
 
@@ -26,21 +29,26 @@ def read_user_choice():
     """
     Lee una selección del usuario (piedra, papel, tijera o salir) y la devuelve
     """
-    user_choice = INVALID_CHOICE
-    while user_choice == INVALID_CHOICE:
+    user_choice = UserChoice.INVALID
+    while user_choice == UserChoice.INVALID:
         print("Select one number: ")
-        print(f"{PAPER}. Paper")
-        print(f"{ROCK}. Rock")
-        print(f"{SCISSORS}. Scissors")
+        print(f"{UserChoice.PAPER}. Paper")
+        print(f"{UserChoice.ROCK}. Rock")
+        print(f"{UserChoice.SCISSORS}. Scissors")
         print("--------------------")
-        print(f"{QUIT}. Quit the game")
+        print(f"{UserChoice.QUIT}. Quit the game")
 
-        user_choice = int(input('Enter your choice: '))
+        # Compruebo que los datos son correctos
+        try:
+            user_choice = int(input('Enter your choice: '))
+        except ValueError:
+            user_choice = UserChoice.INVALID # Si no lo son, vuelvo al menú
+
         # Valido lo que me ha dicho
-        if user_choice  in range(PAPER, QUIT + 1):
+        if user_choice  != UserChoice.INVALID:
             break # Ok y continuamos
         else:
-            user_choice = INVALID_CHOICE 
+            user_choice = UserChoice.INVALID 
 
     return user_choice
 
@@ -69,6 +77,16 @@ def print_result():
     """
     return None
 
+def log_error(error):
+    """
+    Guarda los datos del error en Crashlytics
+    """
+    print(error)
+
 if __name__ == "__main__":
     print("Rock-Paper-Scissors")
-    game_loop()
+    try:
+        game_loop()
+    except Exception as error:
+        log_error(error)
+
