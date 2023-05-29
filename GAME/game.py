@@ -1,5 +1,4 @@
 
-
 def game_loop():
 
     while True:
@@ -23,7 +22,7 @@ def read_user_choice():
     """
     return None
 
-def is_exit():
+def is_exit(user_choice):
     """
     Predicado que devuelve True si el usuario ha decidido para y False
     si quiere seguir jugando
@@ -47,3 +46,6 @@ def print_result():
     Imprime bonito el resultado
     """
     return None
+
+if __name__ == "__main__":
+    game_loop()
