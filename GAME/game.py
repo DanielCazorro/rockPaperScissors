@@ -1,3 +1,9 @@
+# User Choices
+INVALID_CHOICE = -1
+PAPER = 0
+ROCK = 1
+SCISSORS = 2
+QUIT = 3
 
 def game_loop():
 
@@ -20,7 +26,23 @@ def read_user_choice():
     """
     Lee una selección del usuario (piedra, papel, tijera o salir) y la devuelve
     """
-    return None
+    user_choice = INVALID_CHOICE
+    while user_choice == INVALID_CHOICE:
+        print("Select one number: ")
+        print(f"{PAPER}. Paper")
+        print(f"{ROCK}. Rock")
+        print(f"{SCISSORS}. Scissors")
+        print("--------------------")
+        print(f"{QUIT}. Quit the game")
+
+        user_choice = int(input('Enter your choice: '))
+        # Valido lo que me ha dicho
+        if user_choice  in range(PAPER, QUIT + 1):
+            break # Ok y continuamos
+        else:
+            user_choice = INVALID_CHOICE 
+
+    return user_choice
 
 def is_exit(user_choice):
     """
@@ -48,4 +70,5 @@ def print_result():
     return None
 
 if __name__ == "__main__":
+    print("Rock-Paper-Scissors")
     game_loop()
