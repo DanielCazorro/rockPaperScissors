@@ -51,7 +51,7 @@ def read_user_choice():
     #         break # Ok y continuamos
     #     else:
     #         user_choice = UserChoice.INVALID 
-    # return user_choice
+    return user_choice
 
 def is_exit(user_choice):
     """
@@ -72,7 +72,7 @@ def evaluate_move(user_choice, comp_choice):
     """
     assert user_choice != GameChoice.INVALID and user_choice != GameChoice.QUIT
     assert comp_choice != GameChoice.INVALID and comp_choice != GameChoice.QUIT
-    
+
     result = ''
 
     if user_choice == GameChoice.PAPER:
@@ -93,6 +93,7 @@ def evaluate_move(user_choice, comp_choice):
 
 
     else:
+        # Scissors
         if comp_choice == GameChoice.SCISSORS:
             result = "It's a tie!"
         elif comp_choice == GameChoice.PAPER:
