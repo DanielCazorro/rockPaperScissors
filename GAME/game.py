@@ -1,7 +1,6 @@
 from enum import Enum
 
 class UserChoice(Enum):
-    # User Choices
     INVALID = -1
     PAPER = 0
     ROCK = 1
@@ -9,7 +8,9 @@ class UserChoice(Enum):
     QUIT = 3
 
 def game_loop():
-
+    """
+    Bucle principal del juego
+    """
     while True:
         # Leo la selección del usuario (piedra, papel, tijera o parar el juego)
         user_choice = read_user_choice()
@@ -22,7 +23,7 @@ def game_loop():
             # Muestro el ganador en pantalla y vuelta al principio
             print_result(result)
         else:
-            # El humano quiere parar
+            # Queremos parar
             break
 
 def read_user_choice():
@@ -32,11 +33,11 @@ def read_user_choice():
     user_choice = UserChoice.INVALID
     while user_choice == UserChoice.INVALID:
         print("Select one number: ")
-        print(f"{UserChoice.PAPER.value}. Paper")
-        print(f"{UserChoice.ROCK.value}. Rock")
-        print(f"{UserChoice.SCISSORS.value}. Scissors")
-        print("--------------------")
-        print(f"{UserChoice.QUIT.value}. Quit the game")
+        print(f'{UserChoice.PAPER.value}. Paper')
+        print(f'{UserChoice.ROCK.value}. Rock')
+        print(f'{UserChoice.SCISSORS.value}. Scissors')
+        print(f'--------------------')
+        print(f'{UserChoice.QUIT.value}. Quit the game')
 
         # Compruebo que los datos son correctos
         try:
@@ -45,16 +46,15 @@ def read_user_choice():
             user_choice = UserChoice.INVALID # Si no lo son, vuelvo al menú
 
         # Valido lo que me ha dicho
-        if user_choice  != UserChoice.INVALID:
+        if user_choice != UserChoice.INVALID:
             break # Ok y continuamos
         else:
             user_choice = UserChoice.INVALID 
-
     return user_choice
 
 def is_exit(user_choice):
     """
-    Predicado que devuelve True si el usuario ha decidido para y False
+    Predicado que devuelve True si el usuario ha decidido parar y False
     si quiere seguir jugando
     """
     return True
@@ -67,11 +67,11 @@ def generate_computer_choice():
 
 def evaluate_move(user_choice, comp_choice):
     """
-    Compara lass dos jugadas y devuelve un texto con el resultado
+    Compara las dos jugadas y devuelve un texto con el resultado
     """
     return None
 
-def print_result():
+def print_result(result):
     """
     Imprime bonito el resultado
     """
@@ -89,4 +89,3 @@ if __name__ == "__main__":
         game_loop()
     except Exception as error:
         log_error(error)
-
