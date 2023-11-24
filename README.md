@@ -5,7 +5,7 @@ Simple game of Rock, Paper, Scissors
 
 ## ScreenShots
 
-![Screenshot 1]()
+![Screenshot 1](https://github.com/DanielCazorro/rockPaperScissors/blob/main/RPS1.png)
 
 ## Descripción
 Este es un juego simple de Piedra, Papel o Tijeras creado en Python. Permite al usuario jugar contra la computadora realizando selecciones entre las opciones disponibles: piedra, papel o tijeras. Además, ofrece la opción de salir del juego en cualquier momento.
