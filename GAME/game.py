@@ -13,18 +13,12 @@ def game_loop():
     Bucle principal del juego
     """
     while True:
-        # Leo la selección del usuario (piedra, papel, tijera o parar el juego)
         user_choice = read_user_choice()
-        # Siempre y cuando no quiera parar
         if not is_exit(user_choice):
-            # Genero una jugada del ordenador
             comp_choice = generate_computer_choice()
-            # Evalúo la jugada
             result = evaluate_move(user_choice, comp_choice)
-            # Muestro el ganador en pantalla y vuelta al principio
             print_result(result)
         else:
-            # Queremos parar
             break
 
 def read_user_choice():
@@ -33,25 +27,25 @@ def read_user_choice():
     """
     user_choice = GameChoice.INVALID
     while user_choice == GameChoice.INVALID:
-        print("Select one number: ")
-        print(f'{GameChoice.PAPER.value}. Paper')
-        print(f'{GameChoice.ROCK.value}. Rock')
-        print(f'{GameChoice.SCISSORS.value}. Scissors')
-        print(f'--------------------')
-        print(f'{GameChoice.QUIT.value}. Quit the game')
-
-        # Compruebo que los datos son correctos
+        print_menu()
         try:
-            user_choice = GameChoice(int(input('Enter your choice: ')))
+            user_input = int(input('Enter your choice: '))
+            user_choice = GameChoice(user_input)
         except ValueError:
-            user_choice = GameChoice.INVALID # Si no lo son, vuelvo al menú
+            print("Invalid input. Please enter a number between 1 and 3.")
 
-    #     # Valido lo que me ha dicho
-    #     if user_choice != UserChoice.INVALID:
-    #         break # Ok y continuamos
-    #     else:
-    #         user_choice = UserChoice.INVALID 
     return user_choice
+
+def print_menu():
+    """
+    Muestra el menú de selección al usuario
+    """
+    print("Select one number: ")
+    print(f'{GameChoice.PAPER.value}. Paper')
+    print(f'{GameChoice.ROCK.value}. Rock')
+    print(f'{GameChoice.SCISSORS.value}. Scissors')
+    print(f'--------------------')
+    print(f'{GameChoice.QUIT.value}. Quit the game')
 
 def is_exit(user_choice):
     """

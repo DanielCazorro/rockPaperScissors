@@ -3,14 +3,24 @@ Simple game of Rock, Paper, Scissors
 
 # Piedra, Papel, Tijera
 
-Vamos a crear una carpeta para el proyecto y dentro de ella, un fichero Python llamado `game.py`.
+## ScreenShots
 
-Tendremos que hacer lo siguiente para poder jugar:
+![Screenshot 1]()
 
-1. Leer la jugada del humano
-2. Generar una jugada del ordenador (aleatoria para que no haya trampa)
-3. Evaluar el resultado de comparar una jugada con la otra
-4. Imprimir el resultado
-5. Reiniciarl el bucle
+## Descripción
+Este es un juego simple de Piedra, Papel o Tijeras creado en Python. Permite al usuario jugar contra la computadora realizando selecciones entre las opciones disponibles: piedra, papel o tijeras. Además, ofrece la opción de salir del juego en cualquier momento.
 
-Si te fijas, sigue el patrón del REPL.
+## Funcionalidades clave
+- **Selección de opciones:** El usuario puede elegir entre piedra, papel o tijeras.
+- **Juego contra la computadora:** La computadora realiza una selección aleatoria.
+- **Finalización del juego:** Se puede salir del juego en cualquier momento.
+
+## Cómo usar
+1. Clona el repositorio o descarga el archivo ZIP.
+2. Asegúrate de tener Python instalado en tu sistema.
+3. Ejecuta el archivo `game.py` en tu terminal o editor de código Python.
+
+## Uso del código
+- `game_loop()`: Función principal que inicia y controla el juego.
+- `read_user_choice()`: Lee la selección del usuario desde la entrada estándar.
+- `generate_computer_choice()`: Genera la selección aleatoria de la computadora
